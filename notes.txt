@@ -1,0 +1,23 @@
+javascript:
+------------
+A low-level language is a programming language that provides little or 
+no abstraction of programming concepts and is very close to writing actual machine instructions
+
+The main difference between high level language and low level language is that, 
+-Programmers can easily understand or interpret or compile the high level language in comparison of machine. ...
+-High level language is less memory efficient. Low level language is high memory efficient.
+
+high-level means not to worry about memory management and other stuff like.
+
+-->js is a high level,object oriented.
+-->JavaScript is a scripting or programming language that allows you to implement complex features on web pages.
+
+Uses:
+-----
+html - content of page.
+css -  presentation.
+js  -  inter acts with webpage making more dynamic rather than static.
+
+
+ES6=ECMA Script
+latest:ES11
