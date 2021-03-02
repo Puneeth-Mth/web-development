@@ -142,3 +142,70 @@ ex: const age= age_no => 1997-age_no
 					....
 					...
 			}
+
+
+Note: arrays and objects are the 2 data structure.
+
+1] Arrays: 
+   ======
+		 can hold any type.
+		 array is a single variable that is used to store different elements.
+syntax:
+		['','']
+		   or
+		= new Array('age',121,true);
+
+access array: var_name[index_no];
+------------ 
+
+methods:
+-------  
+	var_name.method_name
+			1]length
+			2]push
+			3]unshift(to add elements at beginning)
+			4]pop
+			5]shift(to remove first elements)
+			6]indexOf(enter the value of the elemets and returns the      				index,no elements means -1)
+			7]includes(return bool if the values are present in the given   	         array)
+
+
+adding/replace into array:
+-------------------------
+
+var_name[index_no]=value;
+
+Note:- can't replace entire array.
+----
+
+
+
+2]  objects: 
+	=======
+
+syntax: {
+			key:value;
+			.........
+			........
+
+		}
+
+
+Access data using:
+-----------------
+
+	a] dot notation or []: 
+	   ------------------
+
+	   ->var_name.key
+	   ->var_name['key']
+
+methods: using this. will be pointing to var_name which is defined
+-------
+
+
+iteration: for,while
+=========
+
+using break,continue....
+

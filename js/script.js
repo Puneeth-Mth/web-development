@@ -101,3 +101,126 @@ function makeingJuice(fruit,extra='') {
 
 	}
 console.log(makeingJuice('orange','ice-cream'));
+
+
+function describeCountry(country,population,captialCity){
+	const info=`${country} has ${population} and its city is ${captialCity}`;
+	return info
+}
+
+// console.log(describeCountry('india','50 million','Dehli'));
+const populationInfo = population => {
+    const population_in_percent = (population / 7900) * 100;
+    return population_in_percent
+
+}
+
+console.log(populationInfo(1441));
+
+
+// const names=['peter','kajal',121,true,''];
+// console.log(names);
+// console.log(names.length);
+
+const names=new Array(121,11);
+names.push('sun')
+console.log(names.indexOf(121));
+console.log(names);
+
+const calcTip=function (bill){
+	return 50>=bill<=300 ? bill *0.15 : bill * 0.2;
+
+}
+
+const bill =[111,300,22,560];
+const tips =[calcTip(bill[0]),calcTip(bill[1]),calcTip(bill[2]),calcTip(bill[3])]
+console.log(tips);
+
+
+let total=[];
+for (var i = 0; i <=bill.length; i++) {
+	let value=bill[i]+tips[i]
+	total.push(value);
+	
+}
+total.pop();
+console.log(total);
+
+//objects
+
+const student={
+	name:'arun',
+	age:'11',
+	section:'A',
+	marks:[111,200,354,53],
+	total_marks:function(){
+		let total=0;
+		for (var i = 0; i <this.marks.length; i++) {
+			total+=this.marks[i];
+			// console.log('====',this.marks[i],total);
+		}
+		return total
+	}
+	// total_marks:function(){return 1},
+};
+
+// console.log(student.total_marks());
+const marks=student.total_marks();
+student['total_marks']=marks
+// console.log(student['age']);
+student.age=22;
+student.status='pass'
+student['location']='india  '
+console.log(student);
+
+
+
+const p1={
+	fullName:'Marks Miller',
+	mass:120,
+	height:5.1,
+	weight:function(){
+		return (this.mass / this.height)**2;
+	}
+};
+
+const p2={
+	fullName:'John Smith',
+	mass:20,
+	height:6.1,
+	weight:function(){
+		return (this.mass / this.height)**2;
+	}
+};
+console.log(p1.weight());
+console.log(p2.weight());
+
+const marks_wg=p1.weight();
+const john_wg=p2.weight();
+
+p1.weight=marks_wg;
+p2.weight=john_wg;
+console.log(p1);
+console.log(p2);
+
+
+if (marks_wg > john_wg) {
+	console.log(`${p1.fullName} ${marks_wg} is higher than ${p2.fullName}${john_wg}`);
+}else{
+	console.log(`${p2.fullName} ${john_wg} is higher than ${p1.fullName}${marks_wg}`);
+
+}
+
+
+function temp_operation(temp_values){
+	let temp_sentence='';
+	for (let i = 0; i < temp_values.length; i++) {
+		let j=1+i;
+		temp_sentence+=`...${temp_values[i]}-C in ${j} days`
+
+	}
+	return temp_sentence;
+}
+
+console.log(temp_operation([12,5,1,37]));
+
