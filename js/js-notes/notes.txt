@@ -209,3 +209,75 @@ iteration: for,while
 
 using break,continue....
 
+=============================================================================
+				        DOM (Document Object Model)
+=============================================================================
+-> It defines the logical structure of documents and the way a document 	    is accessed and manipulated.
+
+-> The DOM (Document Object Model) is an interface that represents how your  	HTML and XML documents are read by the browser. It allows a language 	   (JavaScript) to manipulate, structure, and style your website
+
+
+
+how to access html elements using DOM:
+-------------------------------------
+
+1] document.querySelector('class-name/id-name');
+   	-> gives the complete element like :
+       	 <p class="demo">Welcome to DEMO</p>
+   		
+   		-> to access only text content is:
+   			document.querySelector('class-name/id-name').textContent;
+
+   			ex: Welcome to DEMO.
+   		
+   		-> to get value from the user entered,using dom:
+
+   			    document.querySelector('class-name/id-name).value
+
+2] handling Click Event-listener:
+	-> document.querySelector('class-name/id-name').addEventListener('click',function(){....});
+
+		syntax: addEventListener(type: DOMString, callback: EventListener, capture?: boolean)
+
+		type:[click ...etc]
+
+			- only querySelector need to use . or # to represent class/id
+
+	-> document.querySelector('class-name/id-name').style.backgroundColor = 'green'
+	
+	-> select multiple query selector with same class name.
+			document.querySelectorAll('class-name/id-name')
+
+	-> to remove class:
+			document.querySelectorAll('class-name/id-name').classList.remove('class-name','class-name')
+
+			- for multiple classes to remove using ','(comma).
+			- .class-name is not required ..just use class-name no need dot.
+
+	-> to add class:
+			document.querySelectorAll('class-name/id-name').classList.add('class-name','class-name')
+
+	-> keypress from keyboard:
+			document.addEventListener('keydown',function(){
+						key was pressed.
+		})
+
+		- passing parameter to function in addEventListener list of object of that event
+			using object.key 
+
+		- how to check if class name exist or not:
+
+		    document.querySelectorAll('class-name/id-name').classList.contains('class-name')
+
+	-> other way of selecting id.
+
+			document.getElementById('id-name')
+
+	-> toggle():- same add/remove class
+
+			-Toggle between adding and removing a class name from an element with JavaScript
+			
+			- checks class-name ...if it exists in the given element or not...then it adds the
+			      class-name.
+
+		document.querySelectorAll('class-name/id-name').classList.toggle('class-name')
