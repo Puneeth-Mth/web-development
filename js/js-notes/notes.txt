@@ -281,3 +281,268 @@ how to access html elements using DOM:
 			      class-name.
 
 		document.querySelectorAll('class-name/id-name').classList.toggle('class-name')
+
+
+js-working:
+==========
+
+- High-level
+- Garbage-collected (cleaning un-used variable and so..)
+- Interpreted or just-in-time compiled (line by line code to 0's and 1's)
+- Multi-paradigm
+- Prototype-based object-oriented
+- First-class functions
+- Dynamic
+- Single-threaded
+- Non-blocking event loop
+
+js engine-executes js codes
+mostly used engine: v8-engine (in chrome)
+
+!!!-->>> diagram of js-engine refer " theory-lectures-v2.pdf "
+
+js is both dynamic/statically typed language is known as JIT compilation.
+
+
+scoping:
+--------
+  " 
+   Scoping: How our program’s variables are organized and accessed. “Where do variables
+   live?” or “Where can we access a certain variable, and where not?”;
+  "
+
+Scope:
+-----
+Space or environment in which a certain variable is declared (variable 
+environment in case of functions). There is 
+	->  global scope:
+		-------------
+			- Outside of any function or block
+			- Variables declared in global
+			- scope are accessible everywhere
+
+	->  function scope: (local variables)
+		---------------
+			- Variables are accessible only
+			- inside function, NOT outside
+			- Also called local scope
+
+	->  block scope:
+		-----------
+		- Variables are accessible only , inside block (block scoped) like(if,for with braces)
+				HOWEVER, this only applies to ,let and const variables!.
+
+		- Functions are also block scoped (only in strict mode)
+		- using var makes variable to , access the variables inside the block, outside anywhere.
+	let and const  are blocked scope.
+	var is function-scope.Scope of a variable: Region of our code where a certain variable can be accessed
+
+
+Array-Destructing : (spread-operator=unpack element to array)
+==================
+
+ex-1:
+----
+	const arr=[2,3,4]
+	const [x,y,z] = arr
+	console.log(x,y,z)
+	
+	o/p: x=2 y=3 z=4
+
+ex-2 (nested-array):
+--------------------
+			const arr=[1,5,[99,88]]
+			const [x,y,[a,b]]
+			console.log(a,b)
+
+			o/p: 99,88
+
+ex-3 (setting default-value):
+----------------------------
+			const arr=[2,3]
+	        const [x=1,y=1,z=1] = arr
+
+	        o/p: 2,3,1
+swapping:
+--------
+ex:
+	const arr=[2,3,4]
+	let [x,y] = arr
+	[x,y]=[y,z]
+
+Note: 
+ -> To destructure objects we use {}-->refer this topic:[Data Structures, Modern Operators and  Strings]
+ -> to unpack more parameters in function use:
+ 		const a =  function ({variable_name1,variable_name2....so on}) {
+ 					...
+ 				 }
+
+mutation with objects:
+----------------------
+
+ex:
+	let a=111
+	let b=112
+
+	const obj= {a:23,b:33};
+
+	({a,b}=obj);
+	console.log(a,b);
+	
+	o/p:23,33
+
+-> Syntax for giving alternative names for objects :
+    ----------------------------------------------
+		ex:
+		    const place={
+		    			a:'bangalore'
+		    			b:'mysore'
+					};
+
+			const  {a:'city_1',b:'city_2'} = place
+
+
+
+
+1] spread-operator: 3-dot with variable_name (we expand)
+   --------------
+
+syntax: [...variable_name]
+
+
+iterables: [arrays,str,maps,sets] not objects.
+
+
+2] rest-pattern and parameters: (used for retrieve remaining elements in array ,we compress)
+   ----------------------------
+
+	syntax: [var-name,...others]
+	ex:
+		const aa=[1,2,3,...[33,22]]
+		console.log(aa);
+
+		const [a,b,...others]=aa
+
+		console.log(a,b,others);
+
+Note: 
+     - rest-elements always should be at last in array.
+	 - only one rest-elements shld be in array
+
+ -> with objects:
+	-------------
+					ex:  const arr=['A',1,12]
+					     {a,...numbers}=arr
+
+					 o/p: 'A',1,12
+
+-> using function:
+   --------------
+   				    ex:
+   				    	//using rest-pattern pack them in n
+						const add=function(...n){
+						  console.log(n);
+						}
+
+						add(1)
+						add(1,2)
+						add(55,66,33,55,77,44,11)
+
+
+						const x=[14,15,16,78]
+						//using spread-operator does(1,2,23,..) equal to [...x], we unpack
+						add(...x)
+
+
+3] short Cricuiting using (&& ,||): true =1 ,false-0
+   ------------------------------
+   				ex1: " or return true value "
+   					const a= 3 || 'apple'
+   					o/p: 3
+
+   					const b = '' || 'ball'
+   					o/p: ball
+
+   					const c = undefined || null ||'' || 'ball'
+   					o/p: ball
+
+
+   				ex2: "and return false value."
+
+   					const d = 'apple' || 'ball' || 0 || 'aa'
+   					o/p: 0
+
+
+
+
+4] Nullish-operator: null and undefined(not 0 or '') (??)
+   -----------------
+   			ex: if b doesn't exist means the it would 10
+   				const b = 0
+   				const zero= b ?? 10
+   				
+   				o/p: 0
+
+
+
+
+
+data-structure:
+--------------
+
+1] Set:
+	ex: const orderSet =new Set([1,2,3,3,3,31])
+
+		-> methods of set:
+
+			orderSet.size
+			orderSet.has(key-name) checks if the element contains in data or not
+			orderSet.add()
+			orderSet.delete()
+			orderSet.clear()
+
+		-> conversion to set to array:
+
+			[..new Set([1,2,11])]
+
+2] Maps:
+		ex: const a = new Map()
+			`create an empty Map`
+
+			-> attributes of maps:
+			   -------------------
+				var-name.set() [expected k,v]
+				ex: a.set('a','apple')
+
+		    -> set inside set:
+		        ex: var-name.set(1,'time').set('sat',12.00)
+
+		     -> var-name.get() ,has(),size,
+
+3] String:
+
+		->	methods/function:
+			----------------
+
+							var-name.
+									- indexof(),
+									- lastIndexof(),
+									- slice(begin,end),
+									- toLowerCase()
+									- trim()
+									- replace()
+									- includes()
+									- startWith()
+									- endsWith()
+									- split() ==> returns array
+									- .join(can be ',' ':')
+									- padStart(length_of_string,'+ or any character/symbols')
+									- padEnd()
+									- repeat()
+
+closure Function:
+-----------------
+ 
+ 	- using call(), apply(),bind() method on objects
+ 	- so that this will pointing to current object 
+ 	- obj-name.call(va-name,arg1,arg2..)
